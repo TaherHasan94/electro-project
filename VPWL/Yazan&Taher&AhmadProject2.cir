@@ -1,0 +1,23 @@
+* C:\Users\User\Desktop\Project Electro\VPWL\Yazan&Taher&AhmadProject2.sch
+
+* Schematics Version 9.1 - Web Update 1
+* Fri Jun 17 15:24:33 2022
+
+
+
+** Analysis setup **
+.tran 0ns 10ms 0 1mu
+.OP 
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "Yazan&Taher&AhmadProject2.net"
+.INC "Yazan&Taher&AhmadProject2.als"
+
+
+.probe
+
+
+.END

@@ -1,0 +1,341 @@
+
+**** 06/17/22 16:08:00 *********** Evaluation PSpice (Nov 1999) **************
+
+ * C:\Users\User\Desktop\Project Electro\Thermistor\Yazan&Taher&AhmadProject.sch
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+* Schematics Version 9.1 - Web Update 1
+* Fri Jun 17 16:07:55 2022
+
+
+.PARAM         Rs=40k 
+
+** Analysis setup **
+.DC LIN PARAM Rs 40k 10k 500 
+.tran 0ns 1000ns
+.OP 
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "Yazan&Taher&AhmadProject.net"
+
+**** INCLUDING Yazan&Taher&AhmadProject.net ****
+* Schematics Netlist *
+
+
+
+D_D1         $N_0001 $N_0002 D1N4002 
+Q_Q1         $N_0002 $N_0003 0 Q2N2222
+R_R9         0 $N_0003  1k  
+R_R12         $N_0001 $N_0004  1k  
+X_U1         $N_0005 $N_0006 $N_0004 0 $N_0007 uA741
+R_R3         0 $N_0006  20k  
+R_R4         $N_0005 $N_0004  12k  
+R_R5         0 $N_0005  12k  
+R_R6         $N_0005 $N_0007  27k  
+R_R7         $N_0007 $N_0003  4.7k  
+V_V1         $N_0004 0 12
+R_R2         $N_0006 $N_0004  {Rs}  
+
+**** RESUMING Yazan&Taher&AhmadProject.cir ****
+.INC "Yazan&Taher&AhmadProject.als"
+
+
+
+**** INCLUDING Yazan&Taher&AhmadProject.als ****
+* Schematics Aliases *
+
+.ALIASES
+D_D1            D1(1=$N_0001 2=$N_0002 )
+Q_Q1            Q1(c=$N_0002 b=$N_0003 e=0 )
+R_R9            R9(1=0 2=$N_0003 )
+R_R12           R12(1=$N_0001 2=$N_0004 )
+X_U1            U1(+=$N_0005 -=$N_0006 V+=$N_0004 V-=0 OUT=$N_0007 )
+R_R3            R3(1=0 2=$N_0006 )
+R_R4            R4(1=$N_0005 2=$N_0004 )
+R_R5            R5(1=0 2=$N_0005 )
+R_R6            R6(1=$N_0005 2=$N_0007 )
+R_R7            R7(1=$N_0007 2=$N_0003 )
+V_V1            V1(+=$N_0004 -=0 )
+R_R2            R2(1=$N_0006 2=$N_0004 )
+.ENDALIASES
+
+
+**** RESUMING Yazan&Taher&AhmadProject.cir ****
+.probe
+
+
+.END
+
+**** 06/17/22 16:08:00 *********** Evaluation PSpice (Nov 1999) **************
+
+ * C:\Users\User\Desktop\Project Electro\Thermistor\Yazan&Taher&AhmadProject.sch
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               D1N4002         X_U1.dx         
+          IS   14.110000E-09  800.000000E-18 
+           N    1.984                        
+         ISR  100.000000E-12                 
+         IKF   94.81                         
+          BV  100.1                          
+         IBV   10                            
+          RS     .03389         1            
+          TT    4.761000E-06                 
+         CJO   51.170000E-12                 
+          VJ     .3905                       
+           M     .2762                       
+
+
+**** 06/17/22 16:08:00 *********** Evaluation PSpice (Nov 1999) **************
+
+ * C:\Users\User\Desktop\Project Electro\Thermistor\Yazan&Taher&AhmadProject.sch
+
+
+ ****     BJT MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               Q2N2222         X_U1.qx         
+               NPN             NPN             
+          IS   14.340000E-15  800.000000E-18 
+          BF  255.9            93.75         
+          NF    1               1            
+         VAF   74.03                         
+         IKF     .2847                       
+         ISE   14.340000E-15                 
+          NE    1.307                        
+          BR    6.092           1            
+          NR    1               1            
+          RB   10                            
+          RC    1                            
+         CJE   22.010000E-12                 
+         MJE     .377                        
+         CJC    7.306000E-12                 
+         MJC     .3416                       
+          TF  411.100000E-12                 
+         XTF    3                            
+         VTF    1.7                          
+         ITF     .6                          
+          TR   46.910000E-09                 
+         XTB    1.5                          
+          CN    2.42            2.42         
+           D     .87             .87         
+
+
+**** 06/17/22 16:08:00 *********** Evaluation PSpice (Nov 1999) **************
+
+ * C:\Users\User\Desktop\Project Electro\Thermistor\Yazan&Taher&AhmadProject.sch
+
+
+ ****     SMALL SIGNAL BIAS SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(X_U1.6)   -1.5026 (X_U1.7)   11.7380 (X_U1.8)   11.7380 (X_U1.9)    0.0000     
+
+($N_0001)     .7330                   ($N_0002)     .0356                       
+
+($N_0003)     .7422                   ($N_0004)   12.0000                       
+
+($N_0005)    7.0198                   ($N_0006)    4.0000                       
+
+($N_0007)   11.6130                   (X_U1.10)    6.3801                       
+
+(X_U1.11)   12.0000                   (X_U1.12)   11.9200                       
+
+(X_U1.13)    6.3801                   (X_U1.14)    6.4080                       
+
+(X_U1.53)   11.0000                   (X_U1.54)    1.0000                       
+
+(X_U1.90)    2.4991                   (X_U1.91)   40.0000                       
+
+(X_U1.92)  -40.0000                   (X_U1.99)    6.0000                   
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1        -1.254E-02
+    X_U1.vb     -1.503E-05
+    X_U1.vc     -1.594E-05
+    X_U1.ve      1.061E-11
+    X_U1.vlim    2.499E-03
+    X_U1.vlp    -3.750E-11
+    X_U1.vln    -4.250E-11
+
+    TOTAL POWER DISSIPATION   1.51E-01  WATTS
+
+
+**** 06/17/22 16:08:00 *********** Evaluation PSpice (Nov 1999) **************
+
+ * C:\Users\User\Desktop\Project Electro\Thermistor\Yazan&Taher&AhmadProject.sch
+
+
+ ****     OPERATING POINT INFORMATION      TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+
+
+
+**** VOLTAGE-CONTROLLED CURRENT SOURCES
+
+
+NAME         X_U1.ga     X_U1.gcm  
+I-SOURCE     1.503E-05   2.266E-09
+
+
+**** VOLTAGE-CONTROLLED VOLTAGE SOURCES
+
+
+NAME         X_U1.egnd 
+V-SOURCE     6.000E+00
+I-SOURCE    -2.499E-03
+
+
+**** CURRENT-CONTROLLED CURRENT SOURCES
+
+
+NAME         X_U1.fb   
+I-SOURCE    -5.988E-02
+
+
+**** CURRENT-CONTROLLED VOLTAGE SOURCES
+
+
+NAME         X_U1.hlim 
+V-SOURCE     2.499E+00
+I-SOURCE    -4.999E-12
+
+
+**** DIODES
+
+
+NAME         D_D1        X_U1.dc     X_U1.de     X_U1.dlp    X_U1.dln  
+MODEL        D1N4002     X_U1.dx     X_U1.dx     X_U1.dx     X_U1.dx   
+ID           1.13E-02    1.59E-05   -1.06E-11   -3.75E-11   -4.25E-11 
+VD           6.97E-01    6.13E-01   -1.06E+01   -3.75E+01   -4.25E+01 
+REQ          4.55E+00    1.62E+03    1.00E+12    1.00E+12    1.00E+12 
+CAP          1.05E-06    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+
+NAME         X_U1.dp   
+MODEL        X_U1.dx   
+ID          -1.20E-11 
+VD          -1.20E+01 
+REQ          1.00E+12 
+CAP          0.00E+00 
+
+
+**** BIPOLAR JUNCTION TRANSISTORS
+
+
+NAME         Q_Q1        X_U1.q1     X_U1.q2   
+MODEL        Q2N2222     X_U1.qx     X_U1.qx   
+IB           1.57E-03   -8.03E-12    1.60E-07 
+IC           1.13E-02    1.36E-11    1.50E-05 
+VBE          7.42E-01   -2.38E+00    6.12E-01 
+VBC          7.07E-01   -8.00E+00   -4.90E+00 
+VCE          3.56E-02    5.62E+00    5.51E+00 
+BETADC       7.17E+00   -1.70E+00    9.38E+01 
+GM           4.60E-01    0.00E+00    5.81E-04 
+RPI          2.31E+02    9.38E+13    1.61E+05 
+RX           1.00E+01    0.00E+00    0.00E+00 
+RO           3.17E+00    1.00E+12    1.00E+12 
+CBE          3.54E-10    0.00E+00    0.00E+00 
+CBC          1.61E-08    0.00E+00    0.00E+00 
+CJS          0.00E+00    0.00E+00    0.00E+00 
+BETAAC       1.06E+02    0.00E+00    9.38E+01 
+CBX/CBX2     0.00E+00    0.00E+00    0.00E+00 
+FT/FT2       4.46E+06    0.00E+00    9.25E+15 
+
+
+**** 06/17/22 16:08:00 *********** Evaluation PSpice (Nov 1999) **************
+
+ * C:\Users\User\Desktop\Project Electro\Thermistor\Yazan&Taher&AhmadProject.sch
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(X_U1.6)   -1.5026 (X_U1.7)   11.7380 (X_U1.8)   11.7380 (X_U1.9)    0.0000     
+
+($N_0001)     .7330                   ($N_0002)     .0356                       
+
+($N_0003)     .7422                   ($N_0004)   12.0000                       
+
+($N_0005)    7.0198                   ($N_0006)    4.0000                       
+
+($N_0007)   11.6130                   (X_U1.10)    6.3801                       
+
+(X_U1.11)   12.0000                   (X_U1.12)   11.9200                       
+
+(X_U1.13)    6.3801                   (X_U1.14)    6.4080                       
+
+(X_U1.53)   11.0000                   (X_U1.54)    1.0000                       
+
+(X_U1.90)    2.4991                   (X_U1.91)   40.0000                       
+
+(X_U1.92)  -40.0000                   (X_U1.99)    6.0000                   
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1        -1.254E-02
+    X_U1.vb     -1.503E-05
+    X_U1.vc     -1.594E-05
+    X_U1.ve      1.061E-11
+    X_U1.vlim    2.499E-03
+    X_U1.vlp    -3.750E-11
+    X_U1.vln    -4.250E-11
+
+    TOTAL POWER DISSIPATION   1.51E-01  WATTS
+
+
+
+          JOB CONCLUDED
+
+          TOTAL JOB TIME             .09
+
